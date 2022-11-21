@@ -97,9 +97,9 @@ class _HomeScreenState extends State<HomeScreen> {
         // reverseDuration: Duration(seconds: 2),
         duration: Duration(milliseconds: 1000),
         child: fullview ? FirstView() : SecondView(),
-        // transitionBuilder: (child, animation) {
-        //   return ScaleTransition(scale: animation);
-        // },
+        transitionBuilder: (Widget child, Animation<double> animation) {
+          return ScaleTransition(scale: animation, child: child);
+        },
       )),
     );
   }
