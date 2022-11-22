@@ -12,6 +12,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   bool fullview = true;
 
+//---------Widget Function--------//
+
   Widget FirstView() {
     return Container(
         key: Key('1'),
@@ -43,6 +45,8 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ));
   }
+
+//---------Widget Function--------//
 
   Widget SecondView() {
     return Container(
@@ -93,10 +97,14 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
       ),
       body: Center(
+          //--------calling AnimatedSwitcher--------//
           child: AnimatedSwitcher(
-        // reverseDuration: Duration(seconds: 2),
+        reverseDuration: Duration(milliseconds: 3000),
         duration: Duration(milliseconds: 1000),
+
+        //----------condition checking ternary Operator-------//
         child: fullview ? FirstView() : SecondView(),
+
         transitionBuilder: (Widget child, Animation<double> animation) {
           return ScaleTransition(scale: animation, child: child);
         },
